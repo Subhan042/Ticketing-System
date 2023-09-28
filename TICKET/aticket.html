@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Ticket Management</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            background-image: url(../TICKET/Images/background1.jpg);
+        }
+
+        .container {
+            display: flex;
+            margin: 10px;
+        }
+
+        .left-container, .right-container {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .middle-container {
+            flex: 2;
+            padding: 20px;
+            background-color: #fff;
+            border-left: 1px solid #ddd; /* Add a border to separate middle and left containers */
+            border-right: 1px solid #ddd; /* Add a border to separate middle and right containers */
+        }
+
+        .ticket-list {
+            cursor: pointer;
+        }
+
+        .ticket-details {
+            display: none;
+        }
+
+        .attachment {
+            margin-top: 20px;
+        }
+
+        /* Reply message styles */
+        .reply-container {
+            margin-top: 20px;
+            border-top: 1px solid #ddd; /* Add a border above the reply container */
+            padding-top: 20px;
+        }
+
+        .reply-container textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .reply-container button {
+            margin-top: 10px;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-container">
+            <h2>Tickets</h2>
+            <!-- Add a dropdown for selecting departments -->
+            <select id="department-select">
+                <option value="all" <?php echo ($departmentFilter === "all") ? "selected" : ""; ?>>All Departments</option>
+                <option value="general" <?php echo ($departmentFilter === "general") ? "selected" : ""; ?>>General</option>
+                <option value="sales" <?php echo ($departmentFilter === "sales") ? "selected" : ""; ?>>Sales Department</option>
+                <option value="marketing" <?php echo ($departmentFilter === "marketing") ? "selected" : ""; ?>>Marketing Department</option>
+            </select>
+            <ul class="ticket-list">
+                <?php include 'process_ticket.php'; ?>
+            </ul>
+        </div>
+
+        <div class="middle-container">
+            <h2>Ticket Details</h2>
+            <div class="ticket-details">
+                <!-- Ticket details will be displayed here -->
+            </div>
+
+            <!-- Reply message container -->
+            <div class="reply-container">
+                <h2>Reply to Ticket</h2>
+                <textarea rows="4" placeholder="Type your reply here"></textarea>
+                <button id="send-reply-button">Send Reply</button>
+            </div>
+        </div>
+
+        <div class="right-container">
+            <h2>Ticket Status</h2>
+            <select id="status-select">
+                <option value="open">Open</option>
+                <option value="in-progress">In Progress</option>
+                <option value="closed">Closed</option>
+            </select>
+
+            <!-- Button to change ticket status -->
+            <button id="change-status-button">Change Status</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for interactivity (as shown in the previous example)
+        const ticketList = document.querySelectorAll('.ticket');
+        const ticketDetails = document.querySelector('.ticket-details');
+        const statusSelect = document.getElementById('status-select');
+        const replyContainer = document.querySelector('.reply-container');
+        const sendReplyButton = document.getElementById('send-reply-button');
+        const departmentSelect = document.getElementById('department-select');
+        const changeStatusButton = document.getElementById('change-status-button');
+
+        // Initialize department filter
+        let departmentFilter = "<?php echo $departmentFilter; ?>";
+
+        // Function to update the department filter and trigger a reload
+        function updateDepartmentFilter(selectedDepartment) {
+            departmentFilter = selectedDepartment;
+            window.location.href = `aticket.php?department=${selectedDepartment}`;
+        }
+
+        // Handle department filter change
+        departmentSelect.addEventListener('change', () => {
+            const selectedDepartment = departmentSelect.value;
+            updateDepartmentFilter(selectedDepartment);
+        });
+
+        ticketList.forEach(ticket => {
+            ticket.addEventListener('click', () => {
+                // Get data attributes for content and attachments
+                const ticketContent = ticket.getAttribute('data-ticket-content');
+                const ticketAttachments = ticket.getAttribute('data-ticket-attachments');
+                const ticketTitle = ticket.getAttribute('data-ticket-title');
+                const ticketDepartment = ticket.getAttribute('data-ticket-department');
+
+                // Check if there are attachments
+                const attachmentsArray = ticketAttachments.split(',');
+
+                // Create an HTML list of attachment links or display "No attachment"
+                let attachmentsList = "";
+                if (attachmentsArray[0].trim() !== "") {
+                    attachmentsList = attachmentsArray.map((attachment, index) => `
+                        <a href="${attachment}" target="_blank">Attachment ${index + 1}</a>
+                    `).join('<br>');
+                } else {
+                    attachmentsList = "No attachment";
+                }
+
+                // Populate ticket details
+                ticketDetails.innerHTML = `
+                    <h3>Ticket ${ticket.getAttribute('data-ticket-id')} - ${ticket.getAttribute('data-ticket-name')}</h3>
+                    <p>Title: ${ticketTitle}</p>
+                    <p>Department: ${ticketDepartment}</p>
+                    <p>Content: ${ticketContent}</p>
+                    <p>Attachments:</p>
+                    ${attachmentsList}
+                `;
+
+                // Show ticket details and reply container
+                ticketDetails.style.display = 'block';
+                replyContainer.style.display = 'block';
+            });
+        });
+
+        statusSelect.addEventListener('change', () => {
+            // Simulated status change
+            const selectedStatus = statusSelect.value;
+            console.log(`Status changed to: ${selectedStatus}`);
+        });
+
+        sendReplyButton.addEventListener('click', () => {
+            // Simulated reply sending
+            const replyText = document.querySelector('.reply-container textarea').value;
+            const ticketId = ticketDetails.getAttribute('data-ticket-id');
+
+            // Send an AJAX request to submit the reply
+            fetch('process_ticket.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `ticketId=${ticketId}&replyText=${replyText}`,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response data here if needed
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+        changeStatusButton.addEventListener('click', () => {
+            const selectedStatus = statusSelect.value;
+            const ticketId = ticketDetails.getAttribute('data-ticket-id');
+
+            // Send an AJAX request to update the ticket status
+            fetch('process_ticket.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `ticketId=${ticketId}&status=${selectedStatus}`,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response data here if needed
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
