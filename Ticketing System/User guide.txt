@@ -1,0 +1,47 @@
+User Guide: Ticketing System
+
+Welcome to the Ticketing System!
+
+Table of Contents:
+1.Introduction
+2.Navigation
+3.Dashboard Features
+   - Create Ticket
+   - Check Ticket Status
+   - Contact Support
+4.Logging Out
+5.Additional Information
+
+1. Introduction
+Welcome to the Customer Dashboard, your central hub for managing all your support needs. This dashboard provides easy access to various support services,
+ allowing you to create tickets, check their status, and contact our support team whenever you require assistance.
+
+2. Navigation
+- Home: Click on the "Home" button to return to the main page.
+- Login: Use the "Login" button if you need to access your account.
+- Sign Up: If you are new, click on "Sign Up" to create an account.
+- Logout: To securely log out of your account, click on "Logout."
+
+3. Dashboard Features
+
+Create Ticket
+- Description:Click on the "CREATE TICKET" button in the first square.
+- Functionality: Submit your questions, suggestions, or issues through our support center. Our staff will respond to your tickets promptly.
+
+Check Ticket Status
+- Description: Click on the "CHECK STATUS" button in the second square.
+- Functionality:Track the status of your submitted tickets. Get real-time updates on the progress of your inquiries.
+
+Contact Support
+- Description:Click on "CONTACT SUPPORT" in the third square.
+- Functionality: Reach out to our support team directly for any assistance you need. We are here to help you with any issues you encounter.
+
+4. Logging Out
+- Description:To log out of your account and ensure your privacy, click on the "Logout" button in the header.
+
+5. Additional Information
+- Technical Support:If you experience any technical difficulties while using this dashboard, please contact our technical support team at [fasialim6@gmail.com].
+- Feedback: We value your feedback! If you have suggestions for improving our services or encounter any issues, please let us know through the support center.
+
+Thank you for choosing our support services. We are dedicated to providing you with the best assistance possible. If you have any further questions,
+ feel free to reach out.

@@ -1,0 +1,34 @@
+Prerequisites:
+- Ensure you have XAMPP installed on your system. If not, download and install it from [XAMPP official website](https://www.apachefriends.org/index.html).
+
+ Installation Steps:
+
+1.Start XAMPP:
+   - Open XAMPP Control Panel.
+   - Start the Apache server and MySQL service.
+
+2.Database Setup:
+   - Open your web browser and go to `http://localhost/phpmyadmin`.
+   - Create a new database with same name of the sql name given.
+   - Import the SQL schema given inside sql code given.
+
+3.File Placement:
+   - Place all your HTML, CSS, JavaScript, and PHP files related to the ticketing system inside the `htdocs` folder in your XAMPP installation directory.
+     Typically, it's located at `C:\xampp\htdocs` on Windows or `/Applications/XAMPP/htdocs` on macOS.
+
+4.Database Configuration:
+   -check your xampp mysql port and Set mysql port to 3306 default is 3306 but incase check it and if it differs change it.
+
+5. Accessing the Application:
+   - Open your web browser and go to `http://localhost/Ticket`  is the name of the folder where your ticketing system files are 
+     placed inside the `htdocs` folder.
+
+6. Testing:
+   - Test your application thoroughly to ensure all functionalities work as expected. Create tickets, check ticket status, and verify interactions with the MySQL database.
+
+7. Troubleshooting:
+   - If you encounter any issues, check the Apache and MySQL logs in the XAMPP control panel for error messages. Also, ensure your PHP and MySQL 
+     configurations are correct.
+
+By following these steps, you should have your Ticketing System web application up and running locally on your XAMPP server. Remember to secure your application and 
+database by setting appropriate permissions, passwords, and user privileges before deploying it to a production environment.
