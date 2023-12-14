@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('../TICKET/Images/check.jpg'); /* Add your background image path here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgb(58, 57, 57);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container-wrapper {
+            display: flex; 
+            justify-content: space-between; 
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .container {
+            flex-basis: 48%; 
+            margin: 30px;
+            padding: 40px 20px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+        }
+
+        .container:nth-child(1) {
+            background-color: red; 
+            color: white; 
+        }
+
+        .container:nth-child(2) {
+            background-color: #622569; 
+            color: white; 
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        .container img {
+            width: 100px;
+            height: auto; 
+            display: block; 
+            margin: 0 auto 20px; 
+        }
+
+        button {
+            background-color: white; 
+            color: black; 
+            padding: 10px 20px;
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        .sign-in-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; 
+            transition: background-color 0.3s;
+        }
+
+        .sign-in-button:hover {
+            background-color: #555;
+        }
+
+        .message-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer; 
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        button.send-button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <a href="login.html" class="sign-in-button">Sign In</a> <!-- Redirect to sign-in page -->
+
+    <div class="container-wrapper">
+        <div class="container">
+            <img src="../TICKET/Images/ticket.png" alt="Red Image">
+            <h2>Read Tickets</h2>
+            <a href="aticket.php" class="button-container"><button>Read Tickets</button></a> <!-- Redirect to read tickets page -->
+        </div>
+
+        <div class="container">
+            <img src="../TICKET/Images/message.png" alt="Violet Image">
+            <h2>Reply to Real-Time Messaging</h2>
+            <a href="../TICKET/amessage.html" class="button-container"><button>Reply Messaging</button></a> <!-- Redirect to reply messaging page -->
+        </div>
+    </div>
+    <div class="container" style="background-color: #4CAF50;">
+        <img src="../TICKET/Images/report.png" alt="Green Image">
+        <h2>Generate Reports</h2>
+        <a href="../TICKET/reports.html" class="button-container"><button>Generate Reports</button></a> <!-- Redirect to generate reports page -->
+    </div>
+</body>
+</html>

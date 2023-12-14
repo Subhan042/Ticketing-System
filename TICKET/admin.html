@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('../TICKET/Images/check.jpg'); /* Add your background image path here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgb(58, 57, 57);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container-wrapper {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space between containers */
+            max-width: 800px;
+            margin: 40px auto; /* Adjusted margin for more distance between containers */
+        }
+
+        .container {
+            flex-basis: 48%; /* Distribute space with a small gap between containers */
+            margin: 30px;
+            padding: 40px 20px; /* Adjusted padding for increased height */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: center; /* Center text and button */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Space between content and button */
+        }
+
+        .container:nth-child(1) {
+            background-color: red; /* First container with red background */
+            color: white; /* Text color to match the background */
+        }
+
+        .container:nth-child(2) {
+            background-color: #622569; /* Second container with violet background */
+            color: white; /* Text color to match the background */
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        .container img {
+            width: 100px; /* Set the image width */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove extra space below the image */
+            margin: 0 auto 20px; /* Center the image and add margin at the bottom */
+        }
+
+        button {
+            background-color: white; /* White button background */
+            color: black; /* Inherit text color from parent container */
+            padding: 10px 20px;
+            border: none; /* Remove the border */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Sign-in button with hover effect */
+        .sign-in-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s;
+        }
+
+        .sign-in-button:hover {
+            background-color: #555;
+        }
+        .header-button {
+            position: absolute;
+            top: 10px;
+            left: 100px;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s;
+        }
+
+        .header-button:hover {
+            background-color: #555;
+        }
+
+        .message-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        button.send-button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <a href="login.html" class="sign-in-button">Sign In</a> <!-- Redirect to sign-in page -->
+    <a class="header-button" href="../TICKET/logout.php">Logout</a>
+
+    <div class="container-wrapper">
+        <div class="container">
+            <img src="../TICKET/Images/ticket.png" alt="Red Image">
+            <h2>Read Tickets</h2>
+            <a href="aticket.php" class="button-container"><button>Read Tickets</button></a> <!-- Redirect to read tickets page -->
+        </div>
+
+        <div class="container">
+            <img src="../TICKET/Images/message.png" alt="Violet Image">
+            <h2>Reply to Real-Time Messaging</h2>
+            <a href="../TICKET/amessage.html" class="button-container"><button>Reply Messaging</button></a> <!-- Redirect to reply messaging page -->
+        </div>
+        <div class="container" style="background-color: #4CAF50;">
+            <img src="../TICKET/Images/report.png" alt="Green Image">
+            <h2>Generate Reports</h2>
+            <a href="../TICKET/reports.php" class="button-container"><button>Generate Reports</button></a> <!-- Redirect to generate reports page -->
+        </div>
+    </div>
+    
+</body>
+</html>
