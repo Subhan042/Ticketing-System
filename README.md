@@ -1,3 +1,5 @@
+# Ticketing_System
+
 **Ticketing System for Customer Queries**
 
 This repository contains the source code for a Ticketing System designed to efficiently manage customer inquiries and support requests. The system provides a seamless platform for customers to create tickets, track their status, and communicate with support representatives in real-time.
