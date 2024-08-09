@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+        <title>Ticketing System</title>
+        <style>
+            /* General Styles */
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Montserrat', sans-serif;
+            }
+    
+/* Header Styles */
+/* Header Styles */
+header {
+    background: #f9f9f9; /* Background color */
+    color: #333; /* Text color */
+    padding: 15px 0; /* Adjust padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px; /* Adjust font size */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333; /* Text color */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #666; /* Hover color */
+}
+
+.btn {
+    background-color: #4e54c8; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px; /* Adjust padding */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #333; /* Hover background color */
+}
+
+    
+            /* Home Section Styles */
+            section#home {
+
+                background: linear-gradient(to bottom, #4e54c8, #8f94fb); /* Blusih gradient background */
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                color: white;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                padding: 70px 20px;
+                box-sizing: border-box;
+            }
+    
+            .home-content {
+                max-width: 50%;
+                margin-bottom: -120px;
+                margin-left: 50px;
+            }
+    
+            .home-image {
+                max-width: 50%;
+                margin-left: 80px;
+            }
+    
+            .home-image img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: auto;
+                margin-top: 50px;
+            }
+    
+            .home-content p {
+                text-align: left; 
+            }
+            #social-icons {
+            display: flex;
+            flex-direction: column; /* Arrange items vertically */
+            align-items: center; /* Horizontally center the items */
+            list-style: none; /* Remove default list styles */
+            padding: 0; /* Remove default padding */
+        }
+
+        #social-icons li {
+            margin-bottom: 20px; /* Add some space between icons */
+        }
+
+        #social-icons li a {
+            font-size: 24px; /* Increase the size of the icons */
+        }
+            /* Button Styles */
+            .btn {
+                background-color: white;
+                color: blue;
+                padding: 20px 40px;
+                border: none;
+                border-radius: 5px;
+                text-transform: uppercase;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+                display: inline-block; 
+                margin-top: 20px;
+                margin-left: 200px; 
+                border-radius: 50px;
+            }
+    
+            .btn a {
+                text-decoration: none; 
+                color: inherit;
+            }
+    
+            .btn:hover {
+                background-color: #f0f0f0;
+                color: navy;
+            }
+    
+            /* Service Section Styles */
+            .service-container {
+    margin: 70px auto; /* Add margin to the top and bottom and center horizontally */
+    padding: 20px;
+    width: 70%; /* Set a width for the container */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+    
+            .service-container p {
+                margin-bottom: 0;
+            }
+    
+           
+    
+            .service-content {
+                flex: 1;
+                padding: 20px;
+            }
+    
+            .service-content h3 {
+                margin-top: 0;
+            }
+    
+            .service-content p {
+                margin-bottom: 0;
+            }
+    
+            .service-image {
+                flex: 1;
+                text-align: center;
+            }
+    
+            .service-image img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 5px;
+            }
+    
+            /* Review Section Styles */
+     .review-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.review {
+    width: 300px; /* Adjust the size as needed */
+    flex-shrink: 0;
+    animation: slide 15s linear infinite;
+    border: 2px solid #ccc; /* Border style */
+    border-radius: 8px; /* Border radius for rounded corners */
+    padding: 10px; /* Padding inside the border */
+    margin: 10px; /* Margin around the element */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+@keyframes slide {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+.review-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.review-container {
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    overflow: hidden;
+    margin-top: 50px; /* Adjust spacing from the top */
+}
+
+.review-container {
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: center; /* Center the container vertically */
+    overflow: hidden;
+    margin-top: 50px; /* Adjust spacing from the top */
+    height: 200px; /* Set a fixed height for the container */
+    width: 70%; /* Set a width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+
+.review.active {
+    display: block; /* Show only the active review */
+}
+
+@keyframes slide {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+
+
+
+
+            #review h5 {
+                font-weight: 600;
+                display: inline-block;
+                margin-bottom: 15px;
+                color: blue;
+                border: 2px solid blue;
+                border-radius: 30px;
+                padding: 8px 30px;
+                margin-left: 520px;
+            }
+    
+            /* Services Section Styles */
+            #services h2 {
+                font-weight: 600;
+                display: inline-block;
+                margin-bottom: 15px;
+                color: blue;
+                border: 2px solid blue;
+                border-radius: 30px;
+                padding: 8px 30px;
+                margin-left: 500px;
+            }
+    
+            /* Contact Section Styles */
+            #contact h2 {
+                font-weight: 600;
+                display: inline-block;
+                margin-bottom: 15px;
+                color: blue;
+                border: 2px solid blue;
+                border-radius: 30px;
+                padding: 8px 30px;
+                margin-left: 520px;
+            }
+    
+            #contact {
+                padding-top: 100px; 
+            }
+    
+            .contact-container {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 auto;
+                max-width: 1200px;
+            }
+    
+            .contact-form {
+                flex: 1;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+    
+            #contact h3,h1{
+                color: blue;
+            }
+    
+            .contact-item {
+                flex: 1;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-align: center;
+            }
+    
+            .contact-item img {
+                max-width: 100px;
+                margin-bottom: 10px;
+            }
+    /* Footer Styles */
+/* Footer Styles */
+footer {
+    padding: 50px 0;
+    color: #fff;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-block {
+    width: calc(20% - 20px); /* Adjust width as needed */
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-block h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.footer-block p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-block ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer-block ul li {
+    margin-bottom: 5px;
+}
+
+.footer-block ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-block ul li a:hover {
+    color: #fff;
+}
+
+#loginBtn {
+    background-color: #4e54c8; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px; /* Adjust padding */
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-right:10px;
+}
+#services {
+    background-color: #f9f9f9; /* Background color for the entire services section */
+    padding: 50px 0; /* Add padding to create space around the content */
+}
+
+.service-container {
+    margin: 50px auto; /* Add margin to the top and bottom and center horizontally */
+    padding: 20px;
+    width: 70%; /* Set a width for the container */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #ffffff; /* Background color for the service containers */
+    color: #333333; /* Text color for the service containers */
+}
+
+#loginBtn:hover {
+    background-color: #333; /* Hover background color */
+}
+#siteName {
+    font-family: 'Bebas Neue', sans-serif; /* Use Bebas Neue font */
+    font-size: 48px; /* Font size */
+    color: #202124; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for better contrast */
+    margin: 0; /* Remove any default margin */
+}
+#siteName {
+    font-family: 'Bebas Neue', sans-serif; /* Use Bebas Neue font */
+    font-size: 48px; /* Font size */
+    color: #202124; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for better contrast */
+    margin: 0; /* Remove any default margin */
+}
+.logo-container {
+    width: 160px; /* Adjust width as needed */
+    margin: 0 auto; 
+    margin-left: 10px;/* Center the container horizontally */
+}
+
+.logo-container img {
+    display: block; /* Ensure the image is treated as a block element */
+    width: 100%; /* Make the image responsive */
+}
+#contact {
+  background-color: #f9f9f9; /* Background color */
+  padding: 50px 0; /* Padding at the top and bottom */
+  border-top: 1px solid #ccc; /* Top border */
+}
+
+/* Additional styles can be added here for specific elements inside #contact */
+
+        </style>
+    </head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../TICKET/Images/logo.png" alt="">
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#review">Review</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="../TICKET/login.html" id="loginBtn">Login/Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="home-content">
+            <h1 style="color: white;">Welcome to the Ticketing System</h1>
+            <p>
+                We are here to resolve your queries related to the Ticketing System. Our dedicated team is ready to assist you with any inquiries or support you may need.
+                Our system provides seamless ticket management, efficient communication channels, and quick resolution of issues.
+                Whether you are a customer or a support representative, our platform ensures a smooth experience for all users.
+            </p>
+            <button class="btn"><a href="../TICKET/login.html">Get Started</a></button>
+        </div>
+        <div class="home-image">
+            <img src="../TICKET/Images/landing.svg" alt="Ticketing System Image">
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 style="text-align: center;">Our Best Services</h2>
+        <div class="service-container">
+            <div class="service-content">
+                <h3>Ticket Creation</h3>
+                <p>
+                    Easily create tickets using our intuitive ticket creation system. Whether you have a question, need assistance, or want to report an issue, our ticket creation process simplifies the task for you.
+                </p>
+            </div>
+            <div class="service-image">
+                <img src="../TICKET/Images/ticket-128.png" alt="Ticket Creation">
+            </div>
+        </div>
+        <div class="service-container">
+            <div class="service-content">
+                <h3>Ticket Status</h3>
+                <p>
+                    Stay informed about the status of your tickets in real-time. Our ticket status feature provides you with instant updates on the progress of your requests, ensuring transparency and accountability.
+                </p>
+            </div>
+            <div class="service-image">
+                <img src="../TICKET/Images/approval-128.png" alt="Ticket Status">
+            </div>
+        </div>
+        <div class="service-container">
+            <div class="service-content">
+                <h3>Real-Time Messaging</h3>
+                <p>
+                    Communicate with our support agents instantly through our real-time messaging system. Whether you need clarification, have additional questions, or require immediate assistance, our messaging platform enables quick and efficient communication.
+                </p>
+            </div>
+            <div class="service-image">
+                <img src="../TICKET/Images/message-128.png" alt="Real-Time Messaging">
+            </div>
+        </div>
+    </section>
+
+    <section id="review">
+        <h5>Customer Reviews</h5>
+        <h2 style="text-align: center;">Our Testimonials</h2>
+        <div class="review-container">
+            <div class="review" id="review1">
+                <p>Great service! The ticket creation process was very smooth and efficient. I received prompt assistance from the support team.</p>
+                <p>- John Doe</p>
+            </div>
+            <div class="review" id="review2">
+                <p>Excellent platform for managing tickets. The real-time messaging feature is a game-changer!</p>
+                <p>- Jane Smith</p>
+            </div>
+            <div class="review" id="review3">
+                <p>Highly recommended! The ticket status updates keep me informed at every step of the process.</p>
+                <p>- Alex Johnson</p>
+            </div>
+            <div class="review" id="review4">
+                <p>Great customer support! The team helped me resolve my issue quickly and efficiently.</p>
+                <p>- Emily Brown</p>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="contact">
+        <h2 style="text-align: center;">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-item">
+                <img src="../TICKET/Images/phone-46-64.png" alt="Contact Information">
+                <h3>Contact Information</h3>
+                <p>Email: contact@example.com</p>
+                <p>Phone: +1234567890</p>
+                <p>Address: 123 Street, City, Country</p>
+            </div>
+           
+            <div class="contact-item">
+                <img src="../TICKET/Images/alarm-clock-2-64.png" alt="Business Hours">
+                <h3>Business Hours</h3>
+                <p>Monday - Friday: 9am - 5pm</p>
+                <p>Saturday: 10am - 2pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+            
+        </div>
+    </section>
+    <footer class="bg-dark">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-block" id="about">
+                    <h5>About</h5>
+                    <p> We are here to resolve your queries related to the Ticketing System. Our dedicated team is ready to assist you with any inquiries or support you may need.</p>
+                </div>
+                <div class="footer-block" id="categories">
+                    <h5>Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home<a></li>
+                        <li><a href="#services">Services<a></li>
+                        <li><a href="#review">Review</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-block" id="help-support">
+                    <h5>Help & Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-block" id="follow-us">
+                    <h5>Follow Us</h5>
+                    <ul id="social-icons" class="list-unstyled d-flex">
+                        <li class="mr-3"><a href="#" class="text-dark"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="mr-3"><a href="#" class="text-dark"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" class="text-dark"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+    </footer>
+    
+    
+<script>
+    // JavaScript to handle header hiding/showing on scroll
+let prevScrollPos = window.pageYOffset;
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollPos > currentScrollPos) {
+        document.querySelector("header").style.top = "0";
+    } else {
+        document.querySelector("header").style.top = "-70px";
+    }
+    prevScrollPos = currentScrollPos;
+}
+
+// JavaScript to handle smooth scrolling for navigation links
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        // Prevent default behavior for all links except the "Login/Register" link
+        if (this.getAttribute('href') !== "../TICKET/login.html") {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+let reviews = document.querySelectorAll('.review-container .review');
+let currentIndex = 0;
+
+function moveReviews() {
+    // Hide all reviews
+    reviews.forEach(review => {
+        review.classList.remove('active');
+    });
+
+    // Show the current review
+    reviews[currentIndex].classList.add('active');
+
+    // Move to the next review
+    currentIndex = (currentIndex + 1) % reviews.length;
+
+    // Repeat the process after a certain time interval
+    setTimeout(moveReviews, 5000); // Change 5000 to adjust the time interval (in milliseconds)
+}
+
+// Start the cyclic movement
+moveReviews();
+
+</script>
+</body>
+</html>

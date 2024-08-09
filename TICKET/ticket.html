@@ -4,127 +4,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Support Ticket</title>
-    <style>
-        /* Your CSS styles here */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: grey; /* Set the background color to grey */
-            background-image: url('../TICKET/Images/cticket.jpg'); /* Add your background image path here */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+   
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0svjQEgQWvIhjBsAV2ER4yPJpPkYs8PBz7jfdXMjl3RoyhqvTP6R/TxpC6UyPJcS" crossorigin="anonymous">
+      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+   
+    .site-name {
+  font-family: 'Open Sans', sans-serif; 
+  font-size: 2rem; 
+  color: #38aacc; 
+  text-decoration: none;
+  text-align: center; 
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #fff 0%, #f5f5f5 100%);
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+}
+
+   body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: rgb(200, 200, 253);
+    }
+    h1 {
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="date"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    select {
+      height: 40px; /* Match input height */
+    }
+    .error-message {
+      color: #ff0000;
+      font-size: 14px;
+    }
+    button[type="submit"] {
+      background-color: #052950;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }/* Enhanced header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #4CAF50; /* Green background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Increased shadow for depth */
+}
+
+/* Logo styling */
+.logo {
+  flex: 0 0 150px;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%; /* Rounded corners for circular shape */
+  border: 2px solid #fff; /* White border around the logo */
+}
+
+/* Navigation bar styling */
+.navbar {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  margin-right: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff; /* White link text */
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px; /* Rounded corners for button-like appearance */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.navbar a:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+/* Header styles */
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #052950; /* Apollo Pharmacy blue color */
+    color: #fff;
+}
+
+.logo img {
+    max-width: 150px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa; /* Light gray background */
+    background-color: #052950;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.footer-block h4 {
+    color: #ffffff; /* Dark gray */
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.footer-block p {
+    color: #d6d5d5; /* Medium gray */
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Apollo Pharmacy blue color */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-block {
+    width: calc(20% - 20px); /* Adjust width as needed */
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-block h5 {
+    color: #ffffff; /* Dark gray */
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.footer-block p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-block ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer-block ul li {
+    margin-bottom: 5px;
+}
+
+.footer-block ul li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-block ul li a:hover {
+    color: #fff;
+}
+#social-icons {
+            display: flex;
+            flex-direction: column; /* Arrange items vertically */
+            align-items: center; /* Horizontally center the items */
+            list-style: none; /* Remove default list styles */
+            padding: 0; /* Remove default padding */
         }
 
-        .header {
-            background-color:#170035; /* Set the header background color to dark grey */
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1;
+        #social-icons li {
+            margin-bottom: 20px; /* Add some space between icons */
         }
 
-        .home-button {
-            margin-left: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: color 0.3s;
+        #social-icons li a {
+            font-size: 24px; /* Increase the size of the icons */
         }
 
-        .home-button:hover {
-            color: black;
-        }
 
-        .container {
-            max-width: 600px;
-            margin: 60px auto; /* Add top margin to make space for the header */
-            padding: 30px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        select,
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        textarea {
-            height: 150px;
-        }
-
-        button[type="submit"] {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button[type="submit"]:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-        }
-
-        /* Add some styling to the attachment input */
-        .attachment-label {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .attachment-label:hover {
-            background-color: #0056b3;
-        }
-
-        /* Center the form button */
-        .text-center {
-            text-align: center;
-        }
-    </style>
+</style>
 </head>
 <body>
     <div class="header">
-        <a class="home-button" href="../TICKET/customer.html">Home</a>
+        <div class="site-name">
+            <div>TICKETING SYSTEM</div>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="Landing.html">Home</a></li>
+                <li><a href="status.html">Ticket status</a></li>
+                <li><a href="customer.html">Services</a></li>
+                <li><a href="cmessage.html">Contact</a></li>
+                <li><a href="logout.php">Log out</a></li>
+            </ul>
+        </nav>
     </div>
+    
+    
 
     <div class="container">
         <h1>Create Ticket</h1>
         <form id="ticketForm" enctype="multipart/form-data" action="process_ticket.php" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name">
+                <div class="error-message" id="nameError"></div>
             </div>
+
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="text" id="email" name="email">
+                <div class="error-message" id="emailError"></div>
             </div>
+
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title">
+                <div class="error-message" id="titleError"></div>
             </div>
+
             <div class="form-group">
                 <label for="department">Department:</label>
                 <select id="department" name="department">
@@ -132,70 +290,267 @@
                     <option value="Train ticket">Train ticket</option>
                     <option value="Flight ticket">Flight ticket</option>
                 </select>
+                <div class="error-message" id="departmentError"></div>
             </div>
+
+            <div class="form-group dynamic-field" id="busField">
+                <label for="busId">Bus ID:</label>
+                <input type="text" id="busId" name="busId">
+                <div class="error-message" id="busIdError"></div>
+            </div>
+
+            <div class="form-group dynamic-field" id="trainField">
+                <label for="trainId">Train ID:</label>
+                <input type="text" id="trainId" name="trainId">
+                <div class="error-message" id="trainIdError"></div>
+            </div>
+
+            <div class="form-group dynamic-field" id="flightField">
+                <label for="flightId">Flight ID:</label>
+                <input type="text" id="flightId" name="flightId">
+                <div class="error-message" id="flightIdError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from">
+                <div class="error-message" id="fromError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to">
+                <div class="error-message" id="toError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date of Journey:</label>
+                <input type="date" id="date" name="date">
+                <div class="error-message" id="dateError"></div>
+            </div>
+
             <div class="form-group">
                 <label for="content">Query:</label>
-                <textarea id="content" name="content" required></textarea>
+                <textarea id="content" name="content"></textarea>
+                <div class="error-message" id="contentError"></div>
             </div>
-            <!-- ... (previous HTML code) ... -->
 
-<!-- ... (previous HTML code) ... -->
+            <div class="form-group">
+                <label for="attachment">Attach Files:</label>
+                <input type="file" id="attachment" name="attachment" accept="file/*" multiple>
+                <div id="file-list"></div>
+            </div>
 
-<div class="form-group">
-    <label for="attachment">Attach Files:</label>
-    <input type="file" id="attachment" name="attachment" accept="file/*" multiple>
-    <div id="file-list"></div> <!-- Display selected files here -->
-</div>
+            <button type="submit">Submit Ticket</button>
+        </form>
+    </div>
 
-<button type="submit">Submit Ticket</button>
-</form>
-</div>
+    <script>
+        document.getElementById("department").addEventListener("change", showDynamicField);
 
-<script>
-    // Function to add a file to the selected files list and display it
-    function addFileToList(file) {
-        const fileListItem = document.createElement("div");
-        fileListItem.className = "file-list-item";
+        function addFileToList(file) {
+            const fileListItem = document.createElement("div");
+            fileListItem.className = "file-list-item";
 
-        const fileName = document.createElement("span");
-        fileName.textContent = file.name;
+            const fileName = document.createElement("span");
+            fileName.textContent = file.name;
 
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "Remove";
-        removeButton.type = "button";
-        removeButton.className = "remove-button";
-        removeButton.addEventListener("click", function() {
-            // Remove the file from the selectedFiles array
-            const index = selectedFiles.indexOf(file);
-            if (index !== -1) {
-                selectedFiles.splice(index, 1);
-            }
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.type = "button";
+            removeButton.className = "remove-button";
+            removeButton.addEventListener("click", function() {
+                const index = selectedFiles.indexOf(file);
+                if (index !== -1) {
+                    selectedFiles.splice(index, 1);
+                }
+                fileListItem.remove();
+            });
 
-            // Remove the file list item from the DOM
-            fileListItem.remove();
-        });
+            fileListItem.appendChild(fileName);
+            fileListItem.appendChild(removeButton);
 
-        fileListItem.appendChild(fileName);
-        fileListItem.appendChild(removeButton);
+            document.getElementById("file-list").appendChild(fileListItem);
+        }
 
-        // Append the file list item to the file-list div
-        document.getElementById("file-list").appendChild(fileListItem);
-    }
+        const selectedFiles = [];
 
-    // Array to store selected files
-    const selectedFiles = [];
-    
-    const fileInput = document.getElementById("attachment");
-    fileInput.addEventListener("change", function() {
-        for (const file of fileInput.files) {
-            // Check if the file is not already in the selectedFiles array
-            if (!selectedFiles.some(f => f.name === file.name)) {
-                selectedFiles.push(file);
-                addFileToList(file);
+        function showDynamicField() {
+            const departmentSelect = document.getElementById("department");
+            const busField = document.getElementById("busField");
+            const trainField = document.getElementById("trainField");
+            const flightField = document.getElementById("flightField");
+
+            busField.style.display = "none";
+            trainField.style.display = "none";
+            flightField.style.display = "none";
+
+            const selectedDepartment = departmentSelect.value;
+            if (selectedDepartment === "Bus Ticket") {
+                busField.style.display = "block";
+            } else if (selectedDepartment === "Train ticket") {
+                trainField.style.display = "block";
+            } else if (selectedDepartment === "Flight ticket") {
+                flightField.style.display = "block";
             }
         }
-    });
-</script>
 
+        const fileInput = document.getElementById("attachment");
+        fileInput.addEventListener("change", function() {
+            for (const file of fileInput.files) {
+                if (!selectedFiles.some(f => f.name === file.name)) {
+                    selectedFiles.push(file);
+                    addFileToList(file);
+                }
+            }
+        });
+
+        function validateForm() {
+            resetErrorMessages();
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var title = document.getElementById('title').value;
+            var department = document.getElementById('department').value;
+            var busId = document.getElementById('busId').value;
+            var trainId = document.getElementById('trainId').value;
+            var flightId = document.getElementById('flightId').value;
+            var from = document.getElementById('from').value;
+            var to = document.getElementById('to').value;
+            var date = document.getElementById('date').value;
+            var content = document.getElementById('content').value;
+
+            let isValid = true;
+
+            if (name.trim() === '') {
+                showError('nameError', 'Name is required.');
+                isValid = false;
+            } else if (!/^[A-Za-z\s]+$/.test(name)) {
+                showError('nameError', 'Name must contain only letters and spaces.');
+                isValid = false;
+            }
+
+            if (email.trim() === '') {
+                showError('emailError', 'Email is required.');
+                isValid = false;
+            } else if (!email.includes('@')) {
+                showError('emailError', 'Invalid email format.');
+                isValid = false;
+            }else {
+    var domain = email.split('@')[1];
+    var allowedDomains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com"]; // Add your allowed domains here
+
+    if (!allowedDomains.includes(domain)) {
+        showError('emailError', 'Email domain is not allowed.');
+        isValid = false;
+    }
+}
+
+            if (title.trim() === '') {
+                showError('titleError', 'Title is required.');
+                isValid = false;
+            }
+
+            if (department === '') {
+                showError('departmentError', 'Department is required.');
+                isValid = false;
+            }
+
+            if (department === 'Bus Ticket' && busId.trim() === '') {
+                showError('busIdError', 'Bus ID is required.');
+                isValid = false;
+            } else if (department === 'Train ticket' && trainId.trim() === '') {
+                showError('trainIdError', 'Train ID is required.');
+                isValid = false;
+            } else if (department === 'Flight ticket' && flightId.trim() === '') {
+                showError('flightIdError', 'Flight ID is required.');
+                isValid = false;
+            }
+
+            if (from.trim() === '') {
+                showError('fromError', 'From is required.');
+                isValid = false;
+            }
+            if (to.trim() === '') {
+                showError('toError', 'To is required.');
+                isValid = false;
+            }
+            if (date.trim() === '') {
+        showError('dateError', 'Date is required.');
+        isValid = false;
+    } else {
+    var currentDate = new Date();
+    var selectedDate = new Date(date);
+    var minDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 7); // One week before
+    var maxDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 7); // One week after
+
+    if (selectedDate < minDate || selectedDate > maxDate) {
+        showError('dateError', 'Date should be within one week before and one week after the current date.');
+        isValid = false;
+    }
+}
+
+            if (content.trim() === '') {
+                showError('contentError', 'Query is required.');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Attach the validateForm function to the form's onsubmit event
+        document.getElementById('ticketForm').onsubmit = function(event) {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        };
+
+        function showError(id, message) {
+            document.getElementById(id).innerText = message;
+        }
+
+        function resetErrorMessages() {
+            const errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(message => message.innerText = '');
+        }
+
+        
+        showDynamicField();
+    </script>
+
+
+<div class="footer">
+    <div class="footer-block">
+        <h4>About Us</h4>
+        <p>We are here to resolve your queries related to the Ticketing System. Our dedicated team is ready to assist you with any inquiries or support you may need.</p>
+    </div>
+    <div class="footer-block">
+        <h4>Quick Links</h4>
+        <ul>
+            <li><a href="Landing.html">Home</a></li>
+            <li><a href="status.html">Ticket status</a></li>
+            <li><a href="customer.html">Services</a></li>
+            <li><a href="message.html">Contact</a></li>
+            <li><a href="logout.php">Log out</a></li>
+        </ul>
+    </div>
+    <div class="footer-block">
+        <h4>Contact Us</h4>
+        <p>123 Street, City, Country</p>
+        <p>Email: Ticketingsystem@gmail.com</p>
+        <p>Phone: +1234567890</p>
+    </div>
+    <div class="footer-block" id="follow-us">
+        <h5>Follow Us</h5>
+        <ul id="social-icons" class="list-unstyled d-flex">
+            <li class="mr-3"><a href="#" class="text-dark"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="mr-3"><a href="#" class="text-dark"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" class="text-dark"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-OgwbLK/mxr4PKlYtTqwH5aVlMFhg4+PmYrE6TW1lAMfhH8l tslczUywEXYNrqwuN" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "message"; // Replace with your actual database name
+$dbname = "message"; 
 $port = "3306";
 
 // Create a database connection

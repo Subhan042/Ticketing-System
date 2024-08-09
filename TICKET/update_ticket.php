@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'a6min13@gmail.com'; // Your Gmail email address
-        $mail->Password   = 'oand zoso hyvn qgso'; // Your Gmail password
+        $mail->Password   = 'jmfi xkag knft weak'; // Your Gmail password
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 

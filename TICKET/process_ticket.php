@@ -17,13 +17,26 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];
     $title = $_POST["title"];
     $department = $_POST["department"];
+    $from = $_POST["from"];
+    $to = $_POST["to"];
+    $date = $_POST["date"];
     $content = $_POST["content"];
+
+    // Handle dynamic fields based on the selected department
+    $busId = $trainId = $flightId = "";
+
+    if ($department === "Bus Ticket") {
+        $busId = $_POST["busId"];
+    } elseif ($department === "Train ticket") {
+        $trainId = $_POST["trainId"];
+    } elseif ($department === "Flight ticket") {
+        $flightId = $_POST["flightId"];
+    }
 
     // Handle file uploads
     $uploadDir = "uploads/";
@@ -50,7 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insert data into the database
     $attachmentList = implode(", ", $attachments);
-    $sql = "INSERT INTO tickets (name, email, title, department, content, attachment) VALUES ('$name', '$email', '$title', '$department', '$content', '$attachmentList')";
+    $sql = "INSERT INTO tickets (name, email, title, department, from_location, to_location, date_of_journey, content, attachment, bus_id, train_id, flight_id) 
+            VALUES ('$name', '$email', '$title', '$department', '$from', '$to', '$date', '$content', '$attachmentList', '$busId', '$trainId', '$flightId')";
 
     if ($conn->query($sql) === TRUE) {
         $ticketId = $conn->insert_id; // Get the ID of the inserted ticket
@@ -59,11 +73,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail = new PHPMailer(true);
 
         try {
+            $mail->SMTPDebug = 2;
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'a6min13@gmail.com'; // Your Gmail email address
-            $mail->Password   = 'oand zoso hyvn qgso'; // Your Gmail password
+            $mail->Password   = 'jmfi xkag knft weak'; // Your Gmail password
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
@@ -81,12 +96,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } catch (Exception $e) {
             // Email sending failed, handle the error accordingly (e.g., display an error message)
-            echo "Enter the correct Email,it could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            echo "Enter the correct Email, it could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    
 }
 
 $conn->close();
